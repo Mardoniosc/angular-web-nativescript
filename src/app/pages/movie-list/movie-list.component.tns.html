@@ -1,1 +1,39 @@
-<Button text="movie-list works!" class="btn btn-primary"></Button>
+<Page>
+  <ActionBar>
+    <GridLayout rows="*, *, *">
+      <button row="0" class="show-drawer-btn" text="☰"></button>
+
+      <label row="1" class="page-title" text="GERENCIAR FILMES"></label>
+
+      <label
+        row="2"
+        class="page-sub-title"
+        text="Cadastre, edit ou remova filmes da sua lista"
+      ></label>
+    </GridLayout>
+  </ActionBar>
+
+  <StackLayout>
+    <ListView [items]="movies">
+      <ng-template let-movie="item">
+        <GridLayout class="movie-container" columns="auto, *, auto">
+          <label
+            class="movie-rating"
+            text="{{movie.rating}} ⭐"
+            col="0"
+          ></label>
+
+          <StackLayout col="1">
+            <label class="movie-title" text="{{movie.title}}"></label>
+            <label class="movie-obs" text="{{movie.obs}}"></label>
+          </StackLayout>
+
+          <StackLayout col="2">
+            <label class="delete-movie-btn" text="❌"></label>
+            <label class="watch-next-flag" text="🍿"></label>
+          </StackLayout>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+</Page>
