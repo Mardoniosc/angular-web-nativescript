@@ -1,5 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import {
+  NativeScriptFormsModule,
   NativeScriptHttpClientModule,
   NativeScriptModule
 } from "@nativescript/angular";
@@ -15,6 +16,7 @@ import { InMemoryDataService } from "./in-memory-data.service";
   imports: [
     NativeScriptModule,
     NativeScriptHttpClientModule,
+    NativeScriptFormsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       put204: false,
       dataEncapsulation: false,
