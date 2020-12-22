@@ -7,7 +7,7 @@
 
       <label
         row="2"
-        class="page-sub-title"
+        class="page-subtitle"
         text="Cadastre, edit ou remova filmes da sua lista"
       ></label>
     </GridLayout>
@@ -28,9 +28,9 @@
             <label class="movie-obs" text="{{movie.obs}}"></label>
           </StackLayout>
 
-          <StackLayout col="2">
+          <StackLayout col="2" class="movie-actions">
             <label class="delete-movie-btn" text="❌"></label>
-            <label class="watch-next-flag" text="🍿"></label>
+            <label class="watch-next-flag" [class.marked]="movie.toWatchNext" text="🍿"></label>
           </StackLayout>
         </GridLayout>
       </ng-template>
