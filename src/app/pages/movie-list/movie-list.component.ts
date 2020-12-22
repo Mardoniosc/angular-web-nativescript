@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MovieListHelper } from '@src/app/pages/movie-list/movie-list.helper';
+import { MovieListHelper } from "@src/app/pages/movie-list/movie-list.helper";
 import { Movie } from "@src/app/shared/movie.model";
 import { MovieService } from "@src/app/shared/movie.service";
 @Component({
@@ -36,17 +36,28 @@ export class MovieListComponent implements OnInit {
 
   async deleteMovie(movie: Movie) {
     const message = `Deseja realmente excluir o filme ${movie.title}?`;
-    const mustDelete = await MovieListHelper.showDeleteMovieConfirmation(message);
+    const mustDelete = await MovieListHelper.showDeleteMovieConfirmation(
+      message
+    );
 
     if (mustDelete) {
       this.movieService
         .delete(movie)
-        .subscribe(() => this.movies = this.movies.filter( element => element.id != movie.id));
+        .subscribe(
+          () =>
+            (this.movies = this.movies.filter(
+              (element) => element.id != movie.id
+            ))
+        );
     }
   }
 
+  toggleMovieWatchNext(movie: Movie) {
+    this.movieService.toggleMovieWatchNext(movie).subscribe();
+  }
+
   // --------------------------------
-  //  PRIVATE METHOD
+  //  PRIVATE METHODS
   // --------------------------------
 
   private loadMovies() {
