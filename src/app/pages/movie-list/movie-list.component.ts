@@ -34,6 +34,17 @@ export class MovieListComponent implements OnInit {
     );
   }
 
+  deleteMovie(movie: Movie) {
+    const message = `Deseja realmente excluir o filme ${movie.title}?`;
+    const mustDelete = confirm(message);
+
+    if (mustDelete) {
+      this.movieService
+        .delete(movie)
+        .subscribe(() => this.movies = this.movies.filter( element => element.id != movie.id));
+    }
+  }
+
   // --------------------------------
   //  PRIVATE METHOD
   // --------------------------------
