@@ -4,4 +4,6 @@ export class MovieListHelper {
       resolve(confirm(message));
     });
   }
+
+  static showDrawer() {}
 }
