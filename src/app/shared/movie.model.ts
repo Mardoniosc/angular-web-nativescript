@@ -3,6 +3,7 @@ export class Movie {
     public id?: number,
     public title?: string,
     public obs?: string,
+    public rating?: number,
     public toWatchNext?: boolean
   ) {}
 
