@@ -1,0 +1,9 @@
+GridLayout {
+    vertical-align: middle;
+}
+
+GridLayout Label {
+    vertical-align: middle;
+    padding: 0 10 0 0;
+    text-align: right;
+}

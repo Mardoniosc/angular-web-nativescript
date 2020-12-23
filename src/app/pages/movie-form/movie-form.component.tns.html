@@ -1,1 +1,36 @@
-<Button text="movie-form works!" class="btn btn-primary"></Button>
+<Page>
+  <mob-action-bar
+    [title]="movie?.title"
+    subtitle="Editando o Filme"
+  ></mob-action-bar>
+
+  <ScrollView>
+    <StackLayout [formGroup]="movieForm">
+      <TextField hint="Titulo" formControlName="title"></TextField>
+      <label
+        *ngIf="movieForm.get('title').touched && movieForm.get('title').errors?.required"
+        text="Campo Obrigatorio"
+        textWrap="true"
+        class="field-error-message"
+      ></label>
+
+      <TextField hint="Obs" formControlName="obs"></TextField>
+      
+      <StackLayout class="rating-picker-container">
+        <mob-movie-rating-picker
+          class="movie-rating-picker"
+          [form-control]="movieForm.get('rating')"
+          [movie-rating-options]="movieRatingOptions"
+        ></mob-movie-rating-picker>
+      </StackLayout>
+
+      <GridLayout columns="auto, *" class="watch-next-switch-container">
+        <Label col="0" text="Quero Assistir 🍿"></Label>
+        <Switch col="1" class="switch" formControlName="toWatchNext" ></Switch>
+      </GridLayout>
+
+      <Button text="Salvar" (tap)="updateMovie()" [isEnabled]="movieForm.valid && !submittingForm"></Button>
+      
+    </StackLayout>
+  </ScrollView>
+</Page>

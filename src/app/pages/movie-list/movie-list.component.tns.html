@@ -25,7 +25,7 @@
             col="0"
           ></label>
 
-          <StackLayout col="1">
+          <StackLayout col="1" [nsRouterLink]="['/movies', movie.id, 'edit']">
             <label class="movie-title" text="{{movie.title}}"></label>
             <label class="movie-obs" text="{{movie.obs}}"></label>
           </StackLayout>
