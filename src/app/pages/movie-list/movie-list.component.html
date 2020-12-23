@@ -42,7 +42,7 @@
         <div class="card-footer">
           <div class="row">
             <div class="col">
-              <a href="#" class="btn btn-sm btn-dark">Edit</a>
+              <a [routerLink]="['/movies', movie.id, 'edit']" class="btn btn-sm btn-dark">Edit</a>
               <button class="btn btn-sm btn-danger ml-2" (click)="deleteMovie(movie)" >Excluir</button>
             </div>
             <div class="col">

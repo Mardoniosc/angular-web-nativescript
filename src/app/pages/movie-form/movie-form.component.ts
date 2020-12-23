@@ -35,11 +35,6 @@ export class MovieFormComponent implements OnInit {
 
   updateMovie() {
     this.submittingForm = true;
-    if (!this.movieForm) {
-      alert("Formulários com campos inválidos");
-      this.submittingForm = false;
-      return;
-    }
 
     const movie: Movie = Movie.fromJson(this.movieForm.value);
     this.movieService.update(movie).subscribe(
