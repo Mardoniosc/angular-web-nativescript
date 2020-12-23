@@ -1,0 +1,18 @@
+<ActionBar>
+  <GridLayout rows="*, *, *">
+    <button
+      row="0"
+      class="show-drawer-btn"
+      text="☰"
+      (tap)="showDrawer()"
+    ></button>
+
+    <label row="1" class="page-title" [text]="title"></label>
+
+    <label
+      row="2"
+      class="page-subtitle"
+      [text]="subtitle"
+    ></label>
+  </GridLayout>
+</ActionBar>

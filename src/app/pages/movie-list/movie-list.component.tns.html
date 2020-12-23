@@ -1,23 +1,18 @@
 <Page>
-  <ActionBar>
-    <GridLayout rows="*, *, *">
-      <button row="0" class="show-drawer-btn" text="☰" (tap)="showDrawer()"></button>
-
-      <label row="1" class="page-title" text="GERENCIAR FILMES"></label>
-
-      <label
-        row="2"
-        class="page-subtitle"
-        text="Cadastre, edit ou remova filmes da sua lista"
-      ></label>
-    </GridLayout>
-  </ActionBar>
-
+  <mob-action-bar
+    title="GERENCIAR FILMES"
+    subtitle="Cadastre, edite ou remova filmes da sua lista"
+  ></mob-action-bar>
   <StackLayout>
     <!-- new movie container -->
     <GridLayout class="new-movie-container" columns="*, auto">
-        <TextField col="0" [(ngModel)]="newMovieTitle" hint="Título do filme" text=""></TextField>
-        <Button text="+" col="1" (tap)="createMovie()"></Button>
+      <TextField
+        col="0"
+        [(ngModel)]="newMovieTitle"
+        hint="Título do filme"
+        text=""
+      ></TextField>
+      <button text="+" col="1" (tap)="createMovie()"></button>
     </GridLayout>
 
     <!-- movie list -->
@@ -36,8 +31,17 @@
           </StackLayout>
 
           <StackLayout col="2" class="movie-actions">
-            <label class="delete-movie-btn" (tap)="deleteMovie(movie)" text="❌"></label>
-            <label class="watch-next-flag" (tap)="toggleMovieWatchNext(movie)" [class.marked]="movie.toWatchNext" text="🍿"></label>
+            <label
+              class="delete-movie-btn"
+              (tap)="deleteMovie(movie)"
+              text="❌"
+            ></label>
+            <label
+              class="watch-next-flag"
+              (tap)="toggleMovieWatchNext(movie)"
+              [class.marked]="movie.toWatchNext"
+              text="🍿"
+            ></label>
           </StackLayout>
         </GridLayout>
       </ng-template>
